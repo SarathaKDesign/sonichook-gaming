@@ -55,6 +55,7 @@
       z-index: 1;
       color: #fff;
       min-height: 100vh;
+      padding-bottom: 50px;
     }
 
     header {
@@ -64,13 +65,12 @@
     }
 
     header img {
-      max-width: 150px;
-      margin-bottom: 10px;
-      border-radius: 50%;
       width: 120px;
       height: 120px;
+      border-radius: 50%;
       object-fit: cover;
       border: 3px solid #00ff99;
+      margin-bottom: 10px;
     }
 
     header h1 {
@@ -79,55 +79,125 @@
     }
 
     /* Navigation Styles */
-    .nav-vertical {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 20px;
-      gap: 15px;
-      margin-top: 20px;
+    .main-nav {
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      text-align: center;
     }
 
-    .nav-vertical a {
-      display: block;
-      width: 220px;
-      padding: 12px 20px;
-      background: rgba(0, 0, 0, 0.6);
-      border-left: 4px solid #00ff99;
-      color: #fff;
+    .main-nav a {
+      color: #00ff99;
+      margin: 0 15px;
+      padding: 8px 15px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 0 8px 8px 0;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      transition: all 0.3s;
     }
 
-    .nav-vertical a:hover {
-      transform: translateX(8px);
-      background: rgba(0, 255, 153, 0.25);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    .main-nav a:hover {
+      background: rgba(0,255,153,0.2);
     }
 
-    .nav-vertical a[href="Heroes.html"] {
-      background: rgba(0, 255, 153, 0.3);
-      border-left-width: 6px;
+    .main-nav a.active {
+      background: rgba(0,255,153,0.3);
+    }
+
+    /* Heroes Gallery Styles */
+    .hero-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 25px;
+      padding: 30px;
+    }
+
+    .hero-card {
+      background: rgba(0,0,0,0.6);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: 2px solid #00ff99;
+      text-align: center;
+    }
+
+    .hero-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(0,255,153,0.5);
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 2px solid #00ff99;
+    }
+
+    .hero-name {
+      padding: 12px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .hero-story {
+      display: none;
+      padding: 20px;
+      background: rgba(0,0,0,0.8);
+      border-top: 2px solid #00ff99;
+    }
+
+    .hero-story h4 {
+      color: #00ff99;
+      margin-top: 0;
+    }
+
+    .hero-skills {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 15px 0;
+      flex-wrap: wrap;
+    }
+
+    .skill-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid #00ff99;
+      object-fit: cover;
+    }
+
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
     }
 
     /* Responsive Design */
     @media (max-width: 768px) {
-      .nav-vertical {
-        align-items: center;
-        padding-left: 10px;
+      .main-nav a {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
       }
-      .nav-vertical a {
-        width: 90%;
-        text-align: center;
+      
+      .hero-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        padding: 15px;
+        gap: 15px;
+      }
+      
+      .hero-img {
+        height: 150px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Background Layers -->
   <div class="mlbb-bg"></div>
   <video class="video-bg" autoplay muted loop>
     <source src="BC_VIDEO.mp4" type="video/mp4">
@@ -140,13 +210,75 @@
       <h1>MLBB Heroes Database</h1>
     </header>
 
-    <!-- Vertical Navigation -->
-    <nav class="nav-vertical">
+    <nav class="main-nav">
       <a href="index.html">Home</a>
-      <a href="Heroes.html">MLBB Heroes</a>
+      <a href="Heroes.html" class="active">MLBB Heroes</a>
     </nav>
 
-    <!-- Hero content will go here -->
+    <div class="hero-gallery">
+      <!-- Hero 1 -->
+      <div class="hero-card" onclick="showStory('alucard')">
+        <img src="alucard.jpg" class="hero-img" alt="Alucard">
+        <div class="hero-name">Alucard</div>
+        <div id="alucard-story" class="hero-story">
+          <h4>The Demon Hunter</h4>
+          <p>Once a noble knight, Alucard became a half-demon after being betrayed by his own order. Now he seeks vengeance against the demons while struggling with his own dark nature.</p>
+          
+          <div class="hero-skills">
+            <img src="alucard-skill1.jpg" class="skill-icon" title="Groundsplitter - Dash and deal damage">
+            <img src="alucard-skill2.jpg" class="skill-icon" title="Whirling Smash - Spin attack">
+            <img src="alucard-ult.jpg" class="skill-icon" title="Fission Wave - Ultimate ability">
+          </div>
+          
+          <p><strong>Role:</strong> Fighter | <strong>Difficulty:</strong> Medium</p>
+        </div>
+      </div>
+
+      <!-- Hero 2 -->
+      <div class="hero-card" onclick="showStory('miya')">
+        <img src="miya.jpg" class="hero-img" alt="Miya">
+        <div class="hero-name">Miya</div>
+        <div id="miya-story" class="hero-story">
+          <h4>Elven Archer</h4>
+          <p>Miya is the last princess of the Moonlight Elves, wielding her ancestral bow to defend her people. Her arrows never miss their mark.</p>
+          
+          <div class="hero-skills">
+            <img src="miya-skill1.jpg" class="skill-icon" title="Frost Arrow - Slows enemies">
+            <img src="miya-skill2.jpg" class="skill-icon" title="Arrow of Eclipse - Rapid fire">
+            <img src="miya-ult.jpg" class="skill-icon" title="Hidden Moonlight - Invisibility">
+          </div>
+          
+          <p><strong>Role:</strong> Marksman | <strong>Difficulty:</strong> Low</p>
+        </div>
+      </div>
+      
+      <!-- Add more heroes following the same pattern -->
+    </div>
+
+    <footer>
+      &copy; 2025 SonicHook Gaming. All rights reserved.
+    </footer>
   </div>
+
+  <script>
+    let currentOpenStory = null;
+    
+    function showStory(heroId) {
+      // Hide currently open story
+      if (currentOpenStory) {
+        document.getElementById(currentOpenStory).style.display = 'none';
+      }
+      
+      // Show clicked story
+      const story = document.getElementById(heroId + '-story');
+      story.style.display = story.style.display === 'block' ? 'none' : 'block';
+      currentOpenStory = story.style.display === 'block' ? heroId + '-story' : null;
+      
+      // Scroll to the hero card if opening story
+      if (story.style.display === 'block') {
+        story.parentElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  </script>
 </body>
 </html>
