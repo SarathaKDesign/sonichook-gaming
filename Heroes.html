@@ -1,26 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Keep existing head content -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MLBB Heroes | SonicHook Gaming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gendy+Modern+Sans&display=swap" rel="stylesheet">
   <style>
-    /* MLBB-specific background */
-    <nav>
-  <a href="index.html">Home</a>
-  <a href="Heroes.html">MLBB Heroes</a>
-</nav>
+    /* Base Styles */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Gendy Modern Sans', sans-serif;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    /* Background Layers */
     .mlbb-bg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      z-index: -2;
       background: url('mlbb-bg.jpg') no-repeat center center;
       background-size: cover;
-      opacity: 0.7;
     }
     
-    /* Dark overlay for readability */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -3;
+      object-fit: cover;
+      opacity: 0.5;
+    }
+    
     .content::before {
       content: '';
       position: fixed;
@@ -31,15 +48,87 @@
       background: rgba(0,0,0,0.7);
       z-index: -1;
     }
-    
-    /* Keep existing nav-vertical style */
+
+    /* Content Styles */
+    .content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header img {
+      max-width: 150px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border: 3px solid #00ff99;
+    }
+
+    header h1 {
+      margin: 0;
+      color: #00ff99;
+    }
+
+    /* Navigation Styles */
+    .nav-vertical {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .nav-vertical a {
+      display: block;
+      width: 220px;
+      padding: 12px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      border-left: 4px solid #00ff99;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 0 8px 8px 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-vertical a:hover {
+      transform: translateX(8px);
+      background: rgba(0, 255, 153, 0.25);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-vertical a[href="Heroes.html"] {
+      background: rgba(0, 255, 153, 0.3);
+      border-left-width: 6px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-vertical {
+        align-items: center;
+        padding-left: 10px;
+      }
+      .nav-vertical a {
+        width: 90%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
-  <!-- MLBB Background (different from home) -->
+  <!-- Background Layers -->
   <div class="mlbb-bg"></div>
-  
-  <!-- Keep existing video background as fallback -->
   <video class="video-bg" autoplay muted loop>
     <source src="BC_VIDEO.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -57,7 +146,7 @@
       <a href="Heroes.html">MLBB Heroes</a>
     </nav>
 
-    <!-- Rest of your heroes page content -->
+    <!-- Hero content will go here -->
   </div>
 </body>
 </html>
