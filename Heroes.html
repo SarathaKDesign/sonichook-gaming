@@ -27,17 +27,6 @@
       background-size: cover;
     }
     
-    .video-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      z-index: -3;
-      object-fit: cover;
-      opacity: 0.5;
-    }
-    
     .content::before {
       content: '';
       position: fixed;
@@ -122,31 +111,37 @@
     }
 
     .hero-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(0,255,153,0.5);
+      transform: scale(1.03);
+      box-shadow: 0 0 10px rgba(0,255,153,0.3);
     }
 
     .hero-img {
       width: 100%;
       height: 180px;
       object-fit: cover;
-      border-bottom: 2px solid #00ff99;
     }
 
     .hero-name {
       padding: 12px;
       font-weight: bold;
       font-size: 18px;
+      background: rgba(0,0,0,0.5);
     }
 
     .hero-story {
       display: none;
-      padding: 20px;
+      padding: 15px;
       background: rgba(0,0,0,0.8);
       border-top: 2px solid #00ff99;
+      animation: fadeIn 0.3s ease;
     }
 
-    .hero-story h4 {
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .hero-story h3 {
       color: #00ff99;
       margin-top: 0;
     }
@@ -165,6 +160,16 @@
       border-radius: 50%;
       border: 2px solid #00ff99;
       object-fit: cover;
+      transition: transform 0.2s;
+    }
+
+    .skill-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .hero-role {
+      font-style: italic;
+      color: #00ff99;
     }
 
     footer {
@@ -172,9 +177,6 @@
       text-align: center;
       padding: 15px;
       font-size: 14px;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
     }
 
     /* Responsive Design */
@@ -199,10 +201,6 @@
 </head>
 <body>
   <div class="mlbb-bg"></div>
-  <video class="video-bg" autoplay muted loop>
-    <source src="BC_VIDEO.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
 
   <div class="content">
     <header>
@@ -216,43 +214,61 @@
     </nav>
 
     <div class="hero-gallery">
-      <!-- Hero 1 -->
-      <div class="hero-card" onclick="showStory('alucard')">
+      <!-- Hero 1 - Alucard -->
+      <div class="hero-card">
         <img src="alucard.jpg" class="hero-img" alt="Alucard">
         <div class="hero-name">Alucard</div>
-        <div id="alucard-story" class="hero-story">
-          <h4>The Demon Hunter</h4>
-          <p>Once a noble knight, Alucard became a half-demon after being betrayed by his own order. Now he seeks vengeance against the demons while struggling with his own dark nature.</p>
+        <div class="hero-story">
+          <h3>The Demon Hunter</h3>
+          <p>Once a noble knight, Alucard became a half-demon after being betrayed by his own order. Now he walks the line between light and darkness, wielding his massive sword to hunt the very creatures that corrupted him.</p>
           
           <div class="hero-skills">
-            <img src="alucard-skill1.jpg" class="skill-icon" title="Groundsplitter - Dash and deal damage">
-            <img src="alucard-skill2.jpg" class="skill-icon" title="Whirling Smash - Spin attack">
-            <img src="alucard-ult.jpg" class="skill-icon" title="Fission Wave - Ultimate ability">
+            <img src="alucard-skill1.jpg" class="skill-icon" title="Groundsplitter - Dash forward and slash enemies">
+            <img src="alucard-skill2.jpg" class="skill-icon" title="Whirling Smash - Spin attack that damages nearby enemies">
+            <img src="alucard-ult.jpg" class="skill-icon" title="Fission Wave - Unleashes dark energy in a wide area">
           </div>
           
-          <p><strong>Role:</strong> Fighter | <strong>Difficulty:</strong> Medium</p>
+          <p class="hero-role">Role: Fighter | Difficulty: Medium</p>
         </div>
       </div>
 
-      <!-- Hero 2 -->
-      <div class="hero-card" onclick="showStory('miya')">
+      <!-- Hero 2 - Miya -->
+      <div class="hero-card">
         <img src="miya.jpg" class="hero-img" alt="Miya">
         <div class="hero-name">Miya</div>
-        <div id="miya-story" class="hero-story">
-          <h4>Elven Archer</h4>
-          <p>Miya is the last princess of the Moonlight Elves, wielding her ancestral bow to defend her people. Her arrows never miss their mark.</p>
+        <div class="hero-story">
+          <h3>Elven Archer</h3>
+          <p>The last princess of the Moonlight Elves, Miya wields her ancestral bow with unmatched precision. Her arrows carry the magic of the ancient elves, capable of piercing through the toughest armor.</p>
           
           <div class="hero-skills">
-            <img src="miya-skill1.jpg" class="skill-icon" title="Frost Arrow - Slows enemies">
-            <img src="miya-skill2.jpg" class="skill-icon" title="Arrow of Eclipse - Rapid fire">
-            <img src="miya-ult.jpg" class="skill-icon" title="Hidden Moonlight - Invisibility">
+            <img src="miya-skill1.jpg" class="skill-icon" title="Frost Arrow - Slows enemies with icy arrows">
+            <img src="miya-skill2.jpg" class="skill-icon" title="Arrow of Eclipse - Rapidly fires multiple arrows">
+            <img src="miya-ult.jpg" class="skill-icon" title="Hidden Moonlight - Becomes invisible and gains movement speed">
           </div>
           
-          <p><strong>Role:</strong> Marksman | <strong>Difficulty:</strong> Low</p>
+          <p class="hero-role">Role: Marksman | Difficulty: Low</p>
         </div>
       </div>
-      
-      <!-- Add more heroes following the same pattern -->
+
+      <!-- Hero 3 - Eudora -->
+      <div class="hero-card">
+        <img src="eudora.jpg" class="hero-img" alt="Eudora">
+        <div class="hero-name">Eudora</div>
+        <div class="hero-story">
+          <h3>Lightning Sorceress</h3>
+          <p>A master of lightning magic, Eudora can call down thunderbolts to smite her enemies. Her spells are quick and deadly, making her a formidable burst mage in team fights.</p>
+          
+          <div class="hero-skills">
+            <img src="eudora-skill1.jpg" class="skill-icon" title="Forked Lightning - Strikes multiple enemies">
+            <img src="eudora-skill2.jpg" class="skill-icon" title="Electric Shock - Stuns a single target">
+            <img src="eudora-ult.jpg" class="skill-icon" title="Thunderstruck - Calls down a powerful lightning bolt">
+          </div>
+          
+          <p class="hero-role">Role: Mage | Difficulty: Medium</p>
+        </div>
+      </div>
+
+      <!-- Add more heroes following this pattern -->
     </div>
 
     <footer>
@@ -261,24 +277,29 @@
   </div>
 
   <script>
-    let currentOpenStory = null;
-    
-    function showStory(heroId) {
-      // Hide currently open story
-      if (currentOpenStory) {
-        document.getElementById(currentOpenStory).style.display = 'none';
-      }
+    document.addEventListener('DOMContentLoaded', function() {
+      const heroCards = document.querySelectorAll('.hero-card');
       
-      // Show clicked story
-      const story = document.getElementById(heroId + '-story');
-      story.style.display = story.style.display === 'block' ? 'none' : 'block';
-      currentOpenStory = story.style.display === 'block' ? heroId + '-story' : null;
-      
-      // Scroll to the hero card if opening story
-      if (story.style.display === 'block') {
-        story.parentElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    }
+      heroCards.forEach(card => {
+        card.addEventListener('click', function() {
+          // Close all other open stories first
+          document.querySelectorAll('.hero-story').forEach(story => {
+            if (story !== this.querySelector('.hero-story')) {
+              story.style.display = 'none';
+            }
+          });
+          
+          // Toggle the clicked hero's story
+          const story = this.querySelector('.hero-story');
+          story.style.display = story.style.display === 'block' ? 'none' : 'block';
+          
+          // Smooth scroll to the hero card if opening
+          if (story.style.display === 'block') {
+            this.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
