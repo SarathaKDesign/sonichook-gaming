@@ -1,92 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Same head content as index.html -->
-  <nav>
+  <!-- Keep existing head content -->
+  <style>
+    /* MLBB-specific background */
+    <nav>
   <a href="index.html">Home</a>
   <a href="Heroes.html">MLBB Heroes</a>
 </nav>
-  <style>
-    .hero-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 20px;
-      justify-content: flex-start; /* Aligns items to left */
-    }
-    .hero-card {
-      width: 150px;
-      cursor: pointer;
-      transition: transform 0.3s;
-      text-align: center;
-    }
-    .hero-card:hover {
-      transform: scale(1.05);
-    }
-    .hero-img {
+    .mlbb-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
-      border-radius: 8px;
-      border: 2px solid #00ff99;
+      height: 100%;
+      z-index: -1;
+      background: url('mlbb-bg.jpg') no-repeat center center;
+      background-size: cover;
+      opacity: 0.7;
     }
-    .hero-story {
-      display: none;
-      background: rgba(0,0,0,0.8);
-      padding: 20px;
-      border-radius: 10px;
-      margin-top: 10px;
+    
+    /* Dark overlay for readability */
+    .content::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: -1;
     }
+    
+    /* Keep existing nav-vertical style */
   </style>
 </head>
 <body>
-  <!-- Same video background and header as index.html -->
+  <!-- MLBB Background (different from home) -->
+  <div class="mlbb-bg"></div>
   
+  <!-- Keep existing video background as fallback -->
+  <video class="video-bg" autoplay muted loop>
+    <source src="BC_VIDEO.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
   <div class="content">
-    <nav>
-      <a href="index.html">← Home</a>
+    <header>
+      <img src="Logo_SH.jpg" alt="SonicHook Logo">
+      <h1>MLBB Heroes Database</h1>
+    </header>
+
+    <!-- Vertical Navigation -->
+    <nav class="nav-vertical">
+      <a href="index.html">Home</a>
+      <a href="Heroes.html">MLBB Heroes</a>
     </nav>
 
-    <h1>MLBB Heroes</h1>
-    
-    <div class="hero-gallery">
-      <!-- Hero 1 -->
-      <div class="hero-card" onclick="showStory('alucard')">
-        <img src="alucard.jpg" class="hero-img" alt="Alucard">
-        <h3>Alucard</h3>
-        <div id="alucard-story" class="hero-story">
-          <h4>The Demon Hunter</h4>
-          <p>Once a noble knight, Alucard became a half-demon after being betrayed...</p>
-          <p><strong>Role:</strong> Fighter | <strong>Difficulty:</strong> Medium</p>
-        </div>
-      </div>
-
-      <!-- Hero 2 -->
-      <div class="hero-card" onclick="showStory('miya')">
-        <img src="miya.jpg" class="hero-img" alt="Miya">
-        <h3>Miya</h3>
-        <div id="miya-story" class="hero-story">
-          <h4>Elven Archer</h4>
-          <p>Miya is the last princess of the Moonlight Elves...</p>
-        </div>
-      </div>
-      
-      <!-- Add more heroes following the same pattern -->
-    </div>
+    <!-- Rest of your heroes page content -->
   </div>
-
-  <script>
-    let currentOpenStory = null;
-    
-    function showStory(heroId) {
-      // Hide currently open story
-      if (currentOpenStory) {
-        document.getElementById(currentOpenStory).style.display = 'none';
-      }
-      
-      // Show clicked story
-      const story = document.getElementById(heroId + '-story');
-      story.style.display = story.style.display === 'block' ? 'none' : 'block';
-      currentOpenStory = story.style.display === 'block' ? heroId + '-story' : null;
-    }
-  </script>
 </body>
 </html>
