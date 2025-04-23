@@ -2,68 +2,91 @@
 <html lang="en">
 <head>
   <!-- Same head content as index.html -->
-  <title>MLBB Heroes | SonicHook Gaming</title>
-</head>
-<nav>
+  <nav>
   <a href="index.html">Home</a>
   <a href="Heroes.html">MLBB Heroes</a>
 </nav>
-
-<style>
-nav {
-  background: rgba(0,0,0,0.5);
-  padding: 10px;
-  text-align: center;
-}
-nav a {
-  color: #00ff99;
-  margin: 0 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-nav a:hover {
-  text-decoration: underline;
-}
-</style>
-<body>
-  <!-- Same video background and header as index.html -->
-  
-  <div class="content">
-    <h1>🏆 MLBB Heroes History</h1>
-    
-    <div class="hero-gallery">
-      <!-- Example hero card - duplicate and edit for each hero -->
-      <div class="hero-card">
-        <img src="alucard.jpg" alt="Alucard">
-        <h3>Alucard</h3>
-        <p>The Demon Hunter</p>
-        <div class="hero-stats">
-          <span>Fighter</span>
-          <span>Difficulty: Medium</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <style>
     .hero-gallery {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 20px;
       padding: 20px;
+      justify-content: flex-start; /* Aligns items to left */
     }
     .hero-card {
-      background: rgba(0,0,0,0.7);
-      width: 200px;
-      padding: 15px;
-      border-radius: 10px;
+      width: 150px;
+      cursor: pointer;
+      transition: transform 0.3s;
       text-align: center;
     }
-    .hero-card img {
+    .hero-card:hover {
+      transform: scale(1.05);
+    }
+    .hero-img {
       width: 100%;
-      border-radius: 5px;
+      border-radius: 8px;
+      border: 2px solid #00ff99;
+    }
+    .hero-story {
+      display: none;
+      background: rgba(0,0,0,0.8);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 10px;
     }
   </style>
+</head>
+<body>
+  <!-- Same video background and header as index.html -->
+  
+  <div class="content">
+    <nav>
+      <a href="index.html">← Home</a>
+    </nav>
+
+    <h1>MLBB Heroes</h1>
+    
+    <div class="hero-gallery">
+      <!-- Hero 1 -->
+      <div class="hero-card" onclick="showStory('alucard')">
+        <img src="alucard.jpg" class="hero-img" alt="Alucard">
+        <h3>Alucard</h3>
+        <div id="alucard-story" class="hero-story">
+          <h4>The Demon Hunter</h4>
+          <p>Once a noble knight, Alucard became a half-demon after being betrayed...</p>
+          <p><strong>Role:</strong> Fighter | <strong>Difficulty:</strong> Medium</p>
+        </div>
+      </div>
+
+      <!-- Hero 2 -->
+      <div class="hero-card" onclick="showStory('miya')">
+        <img src="miya.jpg" class="hero-img" alt="Miya">
+        <h3>Miya</h3>
+        <div id="miya-story" class="hero-story">
+          <h4>Elven Archer</h4>
+          <p>Miya is the last princess of the Moonlight Elves...</p>
+        </div>
+      </div>
+      
+      <!-- Add more heroes following the same pattern -->
+    </div>
+  </div>
+
+  <script>
+    let currentOpenStory = null;
+    
+    function showStory(heroId) {
+      // Hide currently open story
+      if (currentOpenStory) {
+        document.getElementById(currentOpenStory).style.display = 'none';
+      }
+      
+      // Show clicked story
+      const story = document.getElementById(heroId + '-story');
+      story.style.display = story.style.display === 'block' ? 'none' : 'block';
+      currentOpenStory = story.style.display === 'block' ? heroId + '-story' : null;
+    }
+  </script>
 </body>
 </html>
