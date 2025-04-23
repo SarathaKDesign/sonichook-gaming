@@ -6,7 +6,6 @@
   <title>MLBB Gaming Live | SonicHook Gaming</title>
   <link href="https://fonts.googleapis.com/css2?family=Gendy+Modern+Sans&display=swap" rel="stylesheet">
   <style>
-    /* Base Styles */
     body, html {
       margin: 0;
       padding: 0;
@@ -34,66 +33,106 @@
       text-align: center;
     }
     header img {
-      max-width: 150px;
-      margin-bottom: 10px;
-      border-radius: 50%;
       width: 120px;
       height: 120px;
+      border-radius: 50%;
       object-fit: cover;
       border: 3px solid #00ff99;
+      margin-bottom: 10px;
     }
     header h1 {
       margin: 0;
       color: #00ff99;
     }
 
-    /* Improved Navigation Styles */
-    .nav-vertical {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 20px;
-      gap: 15px;
-      margin-top: 20px;
+    /* Navigation Styles */
+    .main-nav {
+      background: rgba(0,0,0,0.5);
+      padding: 15px;
+      text-align: center;
     }
-    .nav-vertical a {
-      display: block;
-      width: 220px;
-      padding: 12px 20px;
-      background: rgba(0, 0, 0, 0.6);
-      border-left: 4px solid #00ff99;
-      color: #fff;
+    .main-nav a {
+      color: #00ff99;
+      margin: 0 15px;
+      padding: 8px 15px;
       text-decoration: none;
       font-weight: bold;
-      border-radius: 0 8px 8px 0;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      transition: all 0.3s;
     }
-    .nav-vertical a:hover {
-      transform: translateX(8px);
-      background: rgba(0, 255, 153, 0.25);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    .main-nav a:hover {
+      background: rgba(0,255,153,0.2);
     }
-    .nav-vertical a[href="index.html"] {
-      background: rgba(0, 255, 153, 0.3);
-      border-left-width: 6px;
+    .main-nav a.active {
+      background: rgba(0,255,153,0.3);
     }
 
-    /* Responsive Design */
+    /* Content Styles */
+    .stream-section {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    iframe {
+      border: none;
+      width: 90%;
+      max-width: 960px;
+      height: 540px;
+      border-radius: 10px;
+    }
+    .schedule {
+      background: rgba(0,0,0,0.7);
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .schedule ul {
+      list-style: none;
+      padding: 0;
+    }
+    .schedule li {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+    .social-buttons {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .social-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      color: #fff;
+      background-color: #00ff99;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .social-buttons a:hover {
+      background-color: #00cc7a;
+    }
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+    }
+
     @media (max-width: 768px) {
-      .nav-vertical {
-        align-items: center;
-        padding-left: 10px;
+      .main-nav a {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
       }
-      .nav-vertical a {
-        width: 90%;
-        text-align: center;
+      iframe {
+        height: 300px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Background Video -->
   <video class="video-bg" autoplay muted loop>
     <source src="BC_VIDEO.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -103,15 +142,37 @@
     <header>
       <img src="Logo_SH.jpg" alt="SonicHook Logo">
       <h1>🎮 Welcome to SonicHook Gaming</h1>
+      <p>Watch my live gameplay and follow me!</p>
     </header>
 
-    <!-- Vertical Navigation -->
-    <nav class="nav-vertical">
-      <a href="index.html">Home</a>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Home</a>
       <a href="Heroes.html">MLBB Heroes</a>
     </nav>
 
-    <!-- Rest of your home page content -->
+    <div class="stream-section">
+      <iframe src="https://player.twitch.tv/?channel=sonichook&parent=sarathakdesign.github.io" allowfullscreen></iframe>
+    </div>
+
+    <div class="schedule">
+      <h2>📅 Live Streaming Schedule</h2>
+      <ul>
+        <li>Monday-Friday: 7PM - 10PM (GMT+8)</li>
+        <li>Saturday: 2PM - 6PM (GMT+8)</li>
+        <li>Sunday: Special Events (Announced on TikTok)</li>
+      </ul>
+    </div>
+
+    <div class="social-buttons">
+      <a href="https://www.tiktok.com/@sonichook?_t=8cgD8eMToLy&_r=1" target="_blank">TikTok</a>
+      <a href="https://www.youtube.com/@SonicHookGaming" target="_blank">YouTube</a>
+      <a href="https://www.facebook.com/profile.php?id=100093157836859" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/sonichook/" target="_blank">Facebook</a>
+    </div>
+
+    <footer>
+      &copy; 2025 SonicHook Gaming. All rights reserved.
+    </footer>
   </div>
 </body>
 </html>
