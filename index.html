@@ -3,6 +3,19 @@
 <head>
   <!-- Keep existing head content -->
   <style>
+     /* Existing styles... */
+    
+    /* ADD THESE NEW STYLES AT THE END OF YOUR STYLE SECTION */
+    .nav-vertical a {
+      transition: all 0.3s ease;
+    }
+    .nav-vertical a:hover {
+      transform: translateX(5px);
+      background: rgba(0,255,153,0.2);
+    }
+    .nav-vertical a[href="index.html"] {
+      background: rgba(0,255,153,0.3);
+    }
     /* Add to your existing styles */
     .nav-vertical {
       display: flex;
