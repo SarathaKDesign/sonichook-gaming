@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MLBB Gaming Live | SonicHook Gaming</title>
+  <link href="https://fonts.googleapis.com/css2?family=Gendy+Modern+Sans&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Gendy Modern Sans', sans-serif;
+      height: 100%;
+      overflow-x: hidden;
+    }
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+    }
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      text-align: center;
+    }
+    header img {
+      max-width: 150px;
+      margin-bottom: 10px;
+    }
+    header h1 {
+      margin: 0;
+      color: #00ff99;
+    }
+    .stream-section {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+    iframe {
+      border: none;
+      width: 90%;
+      max-width: 960px;
+      height: 540px;
+    }
+    .social-buttons {
+      text-align: center;
+      margin: 30px 0;
+    }
+    .social-buttons a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      color: #fff;
+      background-color: #00ff99;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .social-buttons a:hover {
+      background-color: #00cc7a;
+    }
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Background Video -->
+  <video class="video-bg" autoplay muted loop>
+    <source src="BC_VIDEO.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="content">
+    <header>
+      <img src="Logo_SC.jpg" alt="SonicHook Logo">
+      <h1>🎮 Welcome to SonicHook Gaming</h1>
+      <p>Watch my live gameplay and follow me!</p>
+    </header>
+
+    <div class="stream-section">
+      <iframe
+        src="https://player.twitch.tv/?channel=sonichook&parent=localhost"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="social-buttons">
+      <a href="https://www.tiktok.com/@sonichook?_t=8cgD8eMToLy&_r=1" target="_blank">TikTok</a>
+      <a href="https://www.youtube.com/@SonicHookGaming" target="_blank">YouTube</a>
+      <a href="https://www.twitch.tv/sonichook" target="_blank">Twitch</a>
+    </div>
+
+    <footer>
+      &copy; 2025 SonicHook Gaming. All rights reserved.
+    </footer>
+  </div>
+</body>
+</html>
